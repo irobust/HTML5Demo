@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*
+		1. even ,odd
+		2. number
+		3. an + b
+		*/
+		li:nth-child(2n){
+			background-color: #aaa;
+			color: #fff;
+		}
+		
+		li[class]{
+			background-color: #eee;
+		}
+
+		li:first-child{
+			background-color: #ccc;
+		}
+
+		nav > ul > li{
+			border: 1px solid gray;
+		}
+		.error{
+			color: red;
+			display: none;
+		}
+
+		input:invalid{
+			border: 2px solid red;
+		}
+
+		input:invalid + span{
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>Item1</li>
+			<li>Item2</li>
+			<li>Item3</li>
+			<li class="xxx">Item4</li>
+			<li>Item5</li>
+			<li>Item6</li>
+			<li>Item7</li>
+			<li>Item8</li>
+		</ul>
+	</nav>
+	<div>
+		<form action="">
+			<label for="">Email: </label>
+			<input type="email" name="email" />
+			<span class="error">Invalid Email!</span>
+		</form>
+	</div>
+</body>
+</html>
