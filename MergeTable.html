@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var before = "";
+			var i = 0;
+			var rowNumber = $('tbody > tr > td:nth-child(1)').size();
+			var changePosition = [];
+			var rowspan = [];
+			$('tbody > tr > td:nth-child(1)').each(function(index){
+				if($(this).text().toLowerCase() === before.toLowerCase()) i++;
+				if($(this).text().toLowerCase() !== before.toLowerCase() || (index+1) === rowNumber){
+
+					if($(this).text().toLowerCase() !== before.toLowerCase())
+						changePosition.push(index);
+					else
+						changePosition.push(++index);
+
+					if(i>0) rowspan.push(i);
+					i=0;
+				}
+				before = $(this).text();
+			});
+
+			console.log(changePosition, rowspan);
+					
+			for(var index in rowspan){
+				var position = changePosition[index];
+				var nextPosition = parseInt(index) + 1;
+				$('tbody > tr > td:nth-child(1)').eq(position).attr('rowspan', rowspan[index] + 1);
+				console.log($('tbody > tr > td:nth-child(1)').slice(position+1, changePosition[nextPosition]));
+				$('tbody > tr > td:nth-child(1)').slice(position+1, changePosition[nextPosition]).remove();
+			}
+		});
+	</script>
+</head>
+<body>
+	<table class="table table-strip">
+		<thead>
+			<th>Service</th>
+			<th>Group</th>
+			<th>Activity</th>
+			<th>Other</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Design</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Design</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Design</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Design</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Transition</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Transition</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>transition</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Transition</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Test</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+			<tr>
+				<td>Test</td>
+				<td>Item 2</td>
+				<td>Item 3</td>
+				<td>Item 4</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

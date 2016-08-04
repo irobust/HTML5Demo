@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('tbody').on('click', 'button', function(){
+				var newRow = $('tbody > tr:first-child').clone();
+				newRow.find('input[type=text]').val('');
+				newRow.appendTo('tbody');
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="server-side.php" method="POST">
+		<input type="hidden" name="document_id" value="0001" />
+		<table class="table">
+			<thead>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" name="firstname[]" width="100%" /></td>
+					<td><input type="text" name="lastname[]" width="100%" /></td>
+					<td><button type="button" class="btn btn-primary">Add</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<button>Submit</button>
+	</form>
+</body>
+</html>

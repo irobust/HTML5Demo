@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: #666;
+			transition: all 2s;
+		}
+
+		.rotate{
+			-webkit-transform: rotate(45deg);
+			transform: rotate(360deg);
+			margin-left: 500px;
+			transition: all 2s;
+		}
+	</style>
+</head>
+<body>
+	<div id="target"></div><span>Irobust.co.th</span>
+	<script type="text/javascript">
+		var div = document.getElementById('target');
+		div.onclick = function(){
+			this.classList.toggle('rotate');
+		};
+	</script>
+</body>
+</html>
