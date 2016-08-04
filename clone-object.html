@@ -7,10 +7,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$('tbody').on('click', 'button', function(){
+			$('tbody').on('click', '.btnAdd', function(){
 				var newRow = $('tbody > tr:first-child').clone();
 				newRow.find('input[type=text]').val('');
 				newRow.appendTo('tbody');
+			});
+
+			$('tbody').on('click', '.btnDel', function(){
+				$(this).closest('tr').remove();
 			});
 		});
 	</script>
@@ -23,12 +27,14 @@
 				<th>Firstname</th>
 				<th>Lastname</th>
 				<th></th>
+				<th></th>
 			</thead>
 			<tbody>
 				<tr>
 					<td><input type="text" name="firstname[]" width="100%" /></td>
 					<td><input type="text" name="lastname[]" width="100%" /></td>
-					<td><button type="button" class="btn btn-primary">Add</button></td>
+					<td><button type="button" class="btn btn-primary btnAdd">Add</button></td>
+					<td><button type="button" class="btn btn-danger btnDel">Delete</button></td>
 				</tr>
 			</tbody>
 		</table>
